@@ -1,0 +1,24 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: animals
+spec:
+  type: bindings.http
+  version: v1
+  metadata:
+    - name: route
+      value: "/"
+---
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: dogpubsub
+  namespace: default
+spec:
+  type: pubsub.redis
+  version: v1
+  metadata:
+    - name: redisHost
+      value: localhost:6379
+    - name: redisPassword
+      value: ""
