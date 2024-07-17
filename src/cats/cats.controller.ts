@@ -1,7 +1,9 @@
 import { DaprServer, HttpMethod, DaprClient } from '@dapr/dapr';
-import { Controller, Get, Req, Injectable, Inject } from '@nestjs/common';
+import { Controller, Get, Req, Injectable, Inject, Param, Post, Body } from '@nestjs/common';
 //import { DaprService } from 'src/dapr/dapr.service';
 import axios from 'axios';
+import { CatsService } from './cats.service';
+import { User as CatModel } from '@prisma/client';
 
 @Controller('cats')
 @Injectable()
@@ -12,6 +14,7 @@ export class CatsController {
     //private readonly daprServer: DaprServer,
     @Inject('DaprClient')
     private readonly daprClient: DaprClient,
+    private readonly catService: CatsService,
   ) { }
 
   /** 
@@ -40,5 +43,17 @@ export class CatsController {
     //const url = `http://localhost:${daprPort}/v1.0/invoke/animals-food/method/cat-food`;
     //const res = await axios.get(url);
     //console.log("get cat food: " + res.data);
+  }
+
+  @Get('kitty/:id')
+  async getCatInDb(@Param('id') id: string): Promise<CatModel> {
+    return this.catService.getCat({ id: Number(id) })
+  }
+
+  @Post('kitty')
+  async createCat(
+    @Body() catData: { name?: string },
+  ): Promise<CatModel> {
+    return this.catService.createCat(catData);
   }
 }

@@ -1,3 +1,21 @@
+```bash 
+npm install @opentelemetry/sdk-node \
+  @opentelemetry/api \
+  @opentelemetry/auto-instrumentations-node \
+  @opentelemetry/sdk-metrics \
+  @opentelemetry/sdk-trace-node
+
+npm install @opentelemetry/exporter-trace-otlp-grpc \
+  @opentelemetry/instrumentation-nestjs-core \
+  @opentelemetry/instrumentation-http \
+  @opentelemetry/instrumentation-express
+
+npm install prisma@latest
+npm install @prisma/client@latest
+npm install @prisma/instrumentation@latest
+
+```
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
