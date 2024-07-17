@@ -10,6 +10,9 @@ npm install @opentelemetry/exporter-trace-otlp-grpc \
   @opentelemetry/instrumentation-http \
   @opentelemetry/instrumentation-express
 
+npm install @opentelemetry/resources
+npm install @opentelemetry/semantic-conventions
+
 npm install prisma@latest
 npm install @prisma/client@latest
 npm install @prisma/instrumentation@latest

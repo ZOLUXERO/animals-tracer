@@ -12,6 +12,8 @@ import {
 import { PrismaInstrumentation } from '@prisma/instrumentation';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc';
 //import { diag, DiagConsoleLogger, DiagLogLevel } from '@opentelemetry/api';
+import { Resource } from '@opentelemetry/resources';
+import { SEMRESATTRS_SERVICE_NAME, SEMRESATTRS_SERVICE_VERSION } from '@opentelemetry/semantic-conventions';
 
 
 //diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.INFO);
@@ -33,6 +35,10 @@ export const otelSdk = new NodeSDK({
     //new ExpressInstrumentation(),
   ],
   spanProcessor: new SimpleSpanProcessor(new OTLPTraceExporter(exporterOptions)),
+  resource: new Resource({
+    [SEMRESATTRS_SERVICE_NAME]: 'animals-nestjs',
+    [SEMRESATTRS_SERVICE_VERSION]: '0.0.4',
+  })
 })
 
 process.on('SIGTERM', () => {
