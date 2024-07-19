@@ -17,6 +17,9 @@ npm install prisma@latest
 npm install @prisma/client@latest
 npm install @prisma/instrumentation@latest
 
+para logs customizados
+npm i nestjs-pino pino-http
+
 ```
 
 <p align="center">

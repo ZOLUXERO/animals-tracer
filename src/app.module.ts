@@ -6,10 +6,16 @@ import { DogsController } from './dogs/dogs.controller';
 import { DaprModule } from './dapr/dapr.module';
 import { CatsService } from './cats/cats.service';
 import { PrismaService } from './prisma/prisma.service';
+import { MyLoggerModule } from './custom-logger/customlogger.module';
+import { LoggerInjector } from './custo-logger-injector/logger-injector.service';
 
 @Module({
-  imports: [DaprModule],
+  imports: [DaprModule, MyLoggerModule],
   controllers: [AppController, CatsController, DogsController],
-  providers: [AppService, CatsService, PrismaService],
+  providers: [AppService, CatsService, PrismaService, LoggerInjector],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private loggerInjector: LoggerInjector) {
+    this.loggerInjector.inject();
+  }
+}

@@ -39,6 +39,8 @@
     "@prisma/client": "^5.17.0",
     "@prisma/instrumentation": "^5.17.0",
     "axios": "^1.7.2",
+    "nestjs-pino": "^4.1.0",
+    "pino-http": "^10.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
   },

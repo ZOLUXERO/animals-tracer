@@ -1,6 +1,5 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-//import { CatsController } from './cats/cats.controller';
 import { otelSdk } from './otel/instrumentation.service';
 
 async function bootstrap() {
