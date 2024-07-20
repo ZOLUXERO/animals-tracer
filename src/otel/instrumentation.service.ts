@@ -11,12 +11,12 @@ import {
 //import { ExpressInstrumentation } from '@opentelemetry/instrumentation-express';
 import { PrismaInstrumentation } from '@prisma/instrumentation';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-grpc';
-//import { diag, DiagConsoleLogger, DiagLogLevel } from '@opentelemetry/api';
+import { diag, DiagConsoleLogger, DiagLogLevel } from '@opentelemetry/api';
 import { Resource } from '@opentelemetry/resources';
 import { SEMRESATTRS_SERVICE_NAME, SEMRESATTRS_SERVICE_VERSION } from '@opentelemetry/semantic-conventions';
 
 
-//diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.INFO);
+diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.NONE);
 
 const exporterOptions = {
   url: 'http://opentelemetry-collector.monitoring.svc.cluster.local:4317'
