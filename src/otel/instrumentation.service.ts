@@ -2,10 +2,10 @@
 import { NodeSDK } from '@opentelemetry/sdk-node';
 import { ConsoleSpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-node';
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
-import {
-  PeriodicExportingMetricReader,
-  ConsoleMetricExporter,
-} from '@opentelemetry/sdk-metrics';
+//import {
+//  PeriodicExportingMetricReader,
+//  ConsoleMetricExporter,
+//} from '@opentelemetry/sdk-metrics';
 //import { NestInstrumentation } from '@opentelemetry/instrumentation-nestjs-core';
 //import { HttpInstrumentation } from '@opentelemetry/instrumentation-http';
 //import { ExpressInstrumentation } from '@opentelemetry/instrumentation-express';
@@ -24,9 +24,9 @@ const exporterOptions = {
 
 export const otelSdk = new NodeSDK({
   traceExporter: new OTLPTraceExporter(exporterOptions),
-  metricReader: new PeriodicExportingMetricReader({
-    exporter: new ConsoleMetricExporter(),
-  }),
+  //metricReader: new PeriodicExportingMetricReader({
+  //  exporter: new ConsoleMetricExporter(),
+  //}),
   instrumentations: [
     getNodeAutoInstrumentations(),
     new PrismaInstrumentation(),
@@ -37,7 +37,7 @@ export const otelSdk = new NodeSDK({
   spanProcessor: new SimpleSpanProcessor(new OTLPTraceExporter(exporterOptions)),
   resource: new Resource({
     [SEMRESATTRS_SERVICE_NAME]: 'animals-nestjs',
-    [SEMRESATTRS_SERVICE_VERSION]: '0.0.4',
+    [SEMRESATTRS_SERVICE_VERSION]: '0.0.8',
   })
 })
 
