@@ -23,7 +23,7 @@ const exporterOptions = {
 }
 
 export const otelSdk = new NodeSDK({
-  traceExporter: new OTLPTraceExporter(exporterOptions),
+  //traceExporter: new ConsoleSpanExporter(),
   //metricReader: new PeriodicExportingMetricReader({
   //  exporter: new ConsoleMetricExporter(),
   //}),
@@ -34,7 +34,7 @@ export const otelSdk = new NodeSDK({
     //new HttpInstrumentation(),
     //new ExpressInstrumentation(),
   ],
-  spanProcessor: new SimpleSpanProcessor(new OTLPTraceExporter(exporterOptions)),
+  //spanProcessor: new SimpleSpanProcessor(new ConsoleSpanExporter()),
   resource: new Resource({
     [SEMRESATTRS_SERVICE_NAME]: 'animals-nestjs',
     [SEMRESATTRS_SERVICE_VERSION]: '0.0.8',

@@ -8,10 +8,11 @@ import { CatsService } from './cats/cats.service';
 import { PrismaService } from './prisma/prisma.service';
 import { MyLoggerModule } from './custom-logger/customlogger.module';
 import { LoggerInjector } from './custo-logger-injector/logger-injector.service';
+import { CityController } from './city/city.controller';
 
 @Module({
   imports: [DaprModule, MyLoggerModule],
-  controllers: [AppController, CatsController, DogsController],
+  controllers: [AppController, CatsController, CityController, DogsController],
   providers: [AppService, CatsService, PrismaService, LoggerInjector],
 })
 export class AppModule {
