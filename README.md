@@ -1,3 +1,8 @@
+# Correr con dapr, recordar que si la aplicacion no tiene necesidad de escuchar es decir usar DaprServer puede usar el mismo puerto que la aplicacion en este caso 3001, si se necesitara usar el DaprServer el puerto de DaprServer y de la aplicacion deben ser diferentes como en animals-food
+```bash
+dapr run --app-id animals --app-port 3001 --app-protocol http --components-path ./components/ npm run start
+```
+
 ```bash 
 npm install @opentelemetry/sdk-node \
   @opentelemetry/api \
