@@ -1,7 +1,9 @@
 import { DaprServer, HttpMethod, DaprClient } from '@dapr/dapr';
-import { Controller, Get, Req, Injectable, Inject, Param, Post, Body, Query } from '@nestjs/common';
+import { Controller, Get, Req, Injectable, Inject, Param, Post, Body, Query, UseGuards } from '@nestjs/common';
+import { ApiGuard } from 'src/guard/api-guard';
 
 @Controller('cities')
+@UseGuards(ApiGuard)
 @Injectable()
 export class CityController {
 
