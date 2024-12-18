@@ -9,6 +9,7 @@ async function bootstrap() {
   //const startDapr = app.get(CatsController);
   //await startDapr.start();
   //await daprServerStart();
+  app.enableCors();
   await app.listen(3001);
 }
 bootstrap();

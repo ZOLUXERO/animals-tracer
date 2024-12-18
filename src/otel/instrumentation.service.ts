@@ -24,6 +24,7 @@ const exporterOptions = {
 
 export const otelSdk = new NodeSDK({
   //traceExporter: new ConsoleSpanExporter(),
+  traceExporter: new OTLPTraceExporter(exporterOptions),
   //metricReader: new PeriodicExportingMetricReader({
   //  exporter: new ConsoleMetricExporter(),
   //}),
