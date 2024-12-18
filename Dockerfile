@@ -4,6 +4,6 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3001
 
 CMD npx prisma migrate dev --name init && npm start
